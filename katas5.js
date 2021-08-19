@@ -185,15 +185,15 @@ testDistinctValues2();
 
 function testCountValues1() {
 
-    let result = countValues("134657893154");
-    let expected = "1(2) 3(2) 4(2) 5(2) 6(1) 7(1) 8(1) 9(1)";
+    let result = countValues("1 3 14 16 4 6 5 7 8 9 3 1 5 4 14 16");
+    let expected = "1(2) 3(2) 4(2) 5(2) 6(1) 7(1) 8(1) 9(1) 14(2) 16(2)";
 
     console.assert(result === expected, `Esperado: ${expected}, Obitido: ${result}`);
 }
 
 function testCountValues2() {
     
-    let result = countValues("135373115");
+    let result = countValues("1 3 5 3 7 3 1 1 5");
     let expected = "1(3) 3(3) 5(2) 7(1)";
 
     console.assert(result === expected, `Esperado: ${expected}, Obitido: ${result}`);
@@ -201,6 +201,7 @@ function testCountValues2() {
 
 function countValues(values) {
     
+    values = values.split(" ")
     let newValues = [];
     let result = ""
 
